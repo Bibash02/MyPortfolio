@@ -1,0 +1,275 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Elena Marsh</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/projects.css' %}">
+</head>
+<body>
+
+<nav>
+  <a href="{% url 'portfolio' %}" class="nav-logo">Bibash Bayalkoti</a>
+  <div class="nav-links">
+    <a href="{% url 'portfolio' %}" class="nav-link">Home</a>
+    <a href="{% url 'projects' %}" class="nav-link active">Projects</a>
+    <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+  </div>
+</nav>
+
+<div class="page-wrapper">
+
+  <!-- HERO -->
+  <div class="card">
+    <div class="projects-hero">
+      <div>
+        <h1>All Projects</h1>
+        <p>A collection of design work, case studies, and side projects spanning UI/UX, Python, and Django development.</p>
+      </div>
+    </div>
+
+    <!-- FILTERS + SEARCH -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filter('all', this)">All</button>
+      <button class="filter-btn" onclick="filter('ux', this)"><span class="dot"></span> UX/UI</button>
+      <button class="filter-btn" onclick="filter('brand', this)"><span class="dot"></span> Python</button>
+      <button class="filter-btn" onclick="filter('dev', this)"><span class="dot"></span> Django</button>
+      <button class="filter-btn" onclick="filter('case', this)"><span class="dot"></span> Rest API</button>
+      <button class="filter-btn" onclick="filter('side', this)"><span class="dot"></span> Side Projects</button>
+      <div class="search-wrap">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input class="search-input" type="text" placeholder="Search projects..." oninput="search(this.value)" id="searchInput">
+      </div>
+    </div>
+
+    <!-- GRID -->
+    <div class="projects-grid" id="grid">
+
+      <!-- Advanced E-commerce Platform Project -->
+      <div class="project-card" data-cats="web ecommerce">
+        <div class="proj-thumb thumb-1">
+          <img src="{% static 'images/ecommerce.png' %}" alt="Advanced E-commerce Platform" style="width:100%; height:100%; object-fit:cover;">
+          <div class="overlay">
+            <a href="https://github.com/Bibash02/Advanced-E-Commerce-Platform" target="_blank">
+              <button class="overlay-btn">View Project ↗</button>
+            </a>  
+          </div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-cats">
+            <span class="proj-cat">Web Development</span>
+            <span class="proj-cat ecommerce">E-commerce</span>
+            <span class="proj-cat django">Django</span>
+            <span class="proj-cat python">Python</span>
+            <span class="proj-cat rest">REST API</span>
+            <span class="proj-cat html">HTML</span>
+            <span class="proj-cat css">CSS</span>
+            <span class="proj-cat bootstrap">BootStrap</span>
+          </div>
+          <h3>Advanced E-commerce Platform</h3>
+          <p>A fully responsive e-commerce platform built with Django &amp; Bootstrap, featuring product management, shopping cart, and payment integration.</p>
+          <div class="proj-footer">
+            <span class="proj-role">Full Stack Developer</span>
+            <span class="status-tag live">● Live</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enhanced Learning Management System Project -->
+      <div class="project-card" data-cats="web lms">
+        <div class="proj-thumb thumb-2">
+          <img src="{% static 'images/lms.png' %}" alt="Enhanced Learning Management System" style="width:100%; height:100%; object-fit:cover;">
+          <div class="overlay">
+            <a href="https://github.com/Bibash02/Enhanced-Learning-Management-System" target="_blank">
+              <button class="overlay-btn">View Project ↗</button>
+            </a>
+          </div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-cats">
+            <span class="proj-cat">Web Development</span>
+            <span class="proj-cat lms">LMS</span>
+            <span class="proj-cat django">Django</span>
+            <span class="proj-cat python">Python</span>
+            <span class="proj-cat rest">REST API</span>
+            <span class="proj-cat html">HTML</span>
+            <span class="proj-cat css">CSS</span>
+            <span class="proj-cat bootstrap">BootStrap</span>
+          </div>
+          <h3>Enhanced Learning Management System</h3>
+          <p>An online learning platform with course management, student tracking, quizzes, and progress reports, built with Django &amp; Python.</p>
+          <div class="proj-footer">
+            <span class="proj-role">Full Stack Developer</span>
+            <span class="status-tag live">● Live</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- QuizByte -->
+      <div class="project-card" data-cats="web django">
+        <div class="proj-thumb thumb-3">
+          <img src="{% static 'images/pic3.jpeg' %}" alt="QuizByte Project" style="width:100%; height:100%; object-fit:cover;">
+          <div class="overlay">
+            <a href="https://github.com/Bibash02/QuizByte" target="_blank">
+              <button class="overlay-btn">View Project ↗</button>
+            </a>
+          </div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-cats">
+            <span class="proj-cat">Web Development</span>
+            <span class="proj-cat html">HTML</span>
+            <span class="proj-cat css">CSS</span>
+            <span class="proj-cat php">PHP</span>
+            <span class="proj-cat bootstrap">BootStrap</span>
+          </div>
+          <h3>QuizByte — Online Quiz Platform</h3>
+          <p>A web application for creating and taking quizzes, with score tracking and leaderboard functionality, built with Django &amp; Python.</p>
+          <div class="proj-footer">
+            <span class="proj-role">Full Stack Developer</span>
+            <span class="status-tag live">● Live</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Simple Food Blogging Project -->
+      <div class="project-card" data-cats="web django">
+        <div class="proj-thumb thumb-4">
+          <img src="{% static 'images/pic3.jpeg' %}" alt="Simple Food Blogging Website" style="width:100%; height:100%; object-fit:cover;">
+          <div class="overlay">
+            <a href="https://github.com/Bibash02/Simple_Food_Blogging_Project" target="_blank">
+              <button class="overlay-btn">View Project ↗</button>
+            </a>
+          </div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-cats">
+            <span class="proj-cat">Web Development</span>
+            <span class="proj-cat html">HTML</span>
+            <span class="proj-cat css">CSS</span>
+            <span class="proj-cat php">PHP</span>
+            <span class="proj-cat bootstrap">BootStrap</span>
+          </div>
+          <h3>Simple Food Blogging Website</h3>
+          <p>A responsive food blogging platform where users can view, comment, and rate recipes, built with Django &amp; Bootstrap.</p>
+          <div class="proj-footer">
+            <span class="proj-role">Full Stack Developer</span>
+            <span class="status-tag live">● Live</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Smart Attendance System -->
+      <div class="project-card" data-cats="web django">
+        <div class="proj-thumb thumb-7">
+          <img src="{% static 'images/pic4.png' %}" alt="Smart Attendance System" style="width:100%; height:100%; object-fit:cover;">
+          <div class="overlay">
+            <a href="https://github.com/Bibash02/Smart-Attendance-System" target="_blank"></a>
+            <button class="overlay-btn">View Project ↗</button>
+          </div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-cats">
+            <span class="proj-cat">Web Development</span>
+            <span class="proj-cat django">Django</span>
+            <span class="proj-cat python">Python</span>
+            <span class="proj-cat html">HTML</span>
+            <span class="proj-cat css">CSS</span>
+            <span class="proj-cat side">Ongoing</span>
+          </div>
+          <h3>Smart Attendance System</h3>
+          <p>An intelligent attendance management system using Django and Python, with role-based dashboards and automated reporting. Currently in development.</p>
+          <div class="proj-footer">
+            <span class="proj-role">Developer</span>
+            <span class="status-tag soon">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Smart Waste Management System -->
+      <div class="project-card" data-cats="web django">
+        <div class="proj-thumb thumb-8">
+          <img src="{% static 'images/pic5.png' %}" alt="Smart Waste Management System" style="width:100%; height:100%; object-fit:cover;">
+          <div class="overlay">
+            <a href="https://github.com/Bibash02/Smart-Waste-Management-System" target="_blank"></a>
+            <button class="overlay-btn">View Project ↗</button>
+          </div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-cats">
+            <span class="proj-cat drf">Django Rest Framework</span>
+            <span class="proj-cat python">Python</span>
+            <span class="proj-cat side">Ongoing</span>
+          </div>
+          <h3>Smart Waste Management System</h3>
+          <p>A smart system for monitoring and managing waste collection using Django Rest API & Python, with real-time dashboards and analytics. Project in progress.</p>
+          <div class="proj-footer">
+            <span class="proj-role">Developer</span>
+            <span class="status-tag soon">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="empty-state" id="emptyState">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <p>No projects found. Try a different filter or search.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="card">
+    <footer>
+      © 2026 Bibash Bayalkoti. <br> &nbsp;&nbsp;
+      Full Stack Developer & Problem Solver &nbsp;·&nbsp;
+      Built with ❤️ using Django
+    </footer>
+  </div>
+
+</div>
+
+<script>
+  let activeFilter = 'all';
+  let searchQuery = '';
+
+  function filter(cat, btn) {
+    activeFilter = cat;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilters();
+  }
+
+  function search(val) {
+    searchQuery = val.toLowerCase();
+    applyFilters();
+  }
+
+  function applyFilters() {
+    const cards = document.querySelectorAll('.project-card');
+    let visible = 0;
+
+    cards.forEach(card => {
+      const cats = card.dataset.cats || '';
+      const text = card.innerText.toLowerCase();
+
+      const catMatch = activeFilter === 'all' || cats.includes(activeFilter);
+      const searchMatch = !searchQuery || text.includes(searchQuery);
+
+      if (catMatch && searchMatch) {
+        card.classList.remove('hidden');
+        visible++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    document.getElementById('emptyState').classList.toggle('show', visible === 0);
+    document.getElementById('countBadge').textContent = `${visible} project${visible !== 1 ? 's' : ''}`;
+  }
+</script>
+
+</body>
+</html>
