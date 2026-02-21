@@ -120,3 +120,9 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+# Looking to send emails in production? Check out our Email API/SMTP product!
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = 'b3b8d5a8d2babb'
+EMAIL_HOST_PASSWORD = '43e89d38974a58'
+EMAIL_PORT = '2525'
