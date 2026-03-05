@@ -122,6 +122,13 @@ STATICFILES_DIRS = [
 ]
 
 # Looking to send emails in production? Check out our Email API/SMTP product!
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'bayalkotibibash@gmail.com'
+# EMAIL_HOST_PASSWORD = 'Zxcvbnm12345%'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+
+# Looking to send emails in production? Check out our Email API/SMTP product!
 EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
 EMAIL_HOST_USER = 'b3b8d5a8d2babb'
 EMAIL_HOST_PASSWORD = '43e89d38974a58'
