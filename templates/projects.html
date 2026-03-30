@@ -48,7 +48,7 @@
     <div class="projects-grid" id="grid">
 
       <!-- Advanced E-commerce Platform Project -->
-      <div class="project-card" data-cats="web ecommerce">
+      <div class="project-card" data-cats="html css js django python rest">
         <div class="proj-thumb thumb-1">
           <img src="{% static 'images/ecommerce.png' %}" alt="Advanced E-commerce Platform" style="width:100%; height:100%; object-fit:cover;">
           <div class="overlay">
@@ -78,7 +78,7 @@
       </div>
 
       <!-- Enhanced Learning Management System Project -->
-      <div class="project-card" data-cats="web lms">
+      <div class="project-card" data-cats="html css js django python rest">
         <div class="proj-thumb thumb-2">
           <img src="{% static 'images/lms.png' %}" alt="Enhanced Learning Management System" style="width:100%; height:100%; object-fit:cover;">
           <div class="overlay">
@@ -108,7 +108,7 @@
       </div>
 
       <!-- QuizByte -->
-      <div class="project-card" data-cats="web django">
+      <div class="project-card" data-cats="html css php">
         <div class="proj-thumb thumb-3">
           <img src="{% static 'images/pic3.jpeg' %}" alt="QuizByte Project" style="width:100%; height:100%; object-fit:cover;">
           <div class="overlay">
@@ -135,7 +135,7 @@
       </div>
 
       <!-- Simple Food Blogging Project -->
-      <div class="project-card" data-cats="web django">
+      <div class="project-card" data-cats="html css php">
         <div class="proj-thumb thumb-4">
           <img src="{% static 'images/pic3.jpeg' %}" alt="Simple Food Blogging Website" style="width:100%; height:100%; object-fit:cover;">
           <div class="overlay">
@@ -162,7 +162,7 @@
       </div>
 
       <!-- Smart Attendance System -->
-      <div class="project-card" data-cats="web django">
+      <div class="project-card" data-cats="html css js django python">
         <div class="proj-thumb thumb-7">
           <img src="{% static 'images/pic4.png' %}" alt="Smart Attendance System" style="width:100%; height:100%; object-fit:cover;">
           <div class="overlay">
@@ -189,7 +189,7 @@
       </div>
 
       <!-- Smart Waste Management System -->
-      <div class="project-card" data-cats="web django">
+      <div class="project-card" data-cats="rest side python">
         <div class="proj-thumb thumb-8">
           <img src="{% static 'images/pic5.png' %}" alt="Smart Waste Management System" style="width:100%; height:100%; object-fit:cover;">
           <div class="overlay">
@@ -223,7 +223,7 @@
   <!-- FOOTER -->
   <div class="card">
     <footer>
-      © 2026 Bibash Bayalkoti. <br> &nbsp;&nbsp;
+      © Bibash Bayalkoti. <br> &nbsp;&nbsp;
       Full Stack Developer & Problem Solver &nbsp;·&nbsp;
       Built with ❤️ using Django
     </footer>
@@ -232,43 +232,44 @@
 </div>
 
 <script>
-  let activeFilter = 'all';
-  let searchQuery = '';
+let activeCategory = "all";
 
-  function filter(cat, btn) {
-    activeFilter = cat;
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    applyFilters();
-  }
+function filter(category, btn) {
+  activeCategory = category;
 
-  function search(val) {
-    searchQuery = val.toLowerCase();
-    applyFilters();
-  }
+  // Active button UI
+  document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
 
-  function applyFilters() {
-    const cards = document.querySelectorAll('.project-card');
-    let visible = 0;
+  applyFilters();
+}
 
-    cards.forEach(card => {
-      const cats = card.dataset.cats || '';
-      const text = card.innerText.toLowerCase();
+function search(value) {
+  applyFilters();
+}
 
-      const catMatch = activeFilter === 'all' || cats.includes(activeFilter);
-      const searchMatch = !searchQuery || text.includes(searchQuery);
+function applyFilters() {
+  const searchValue = document.getElementById("searchInput").value.toLowerCase();
+  const cards = document.querySelectorAll(".project-card");
 
-      if (catMatch && searchMatch) {
-        card.classList.remove('hidden');
-        visible++;
-      } else {
-        card.classList.add('hidden');
-      }
-    });
+  cards.forEach(card => {
+    const categories = card.getAttribute("data-cats").toLowerCase();
+    const title = card.querySelector("h3").innerText.toLowerCase();
+    const desc = card.querySelector("p").innerText.toLowerCase();
 
-    document.getElementById('emptyState').classList.toggle('show', visible === 0);
-    document.getElementById('countBadge').textContent = `${visible} project${visible !== 1 ? 's' : ''}`;
-  }
+    const matchCategory =
+      activeCategory === "all" || categories.includes(activeCategory);
+
+    const matchSearch =
+      title.includes(searchValue) || desc.includes(searchValue);
+
+    if (matchCategory && matchSearch) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
 </script>
 
 </body>
